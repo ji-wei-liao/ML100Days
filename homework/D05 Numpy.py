@@ -11,3 +11,6 @@ print(np.nanmean(chinese_score),np.nanmax(chinese_score),np.nanmin(chinese_score
 
 math_score[4]=55
 print(np.nanmean(math_score),np.nanmax(math_score),np.nanmin(math_score),np.nanstd(math_score))
+
+print(np.corrcoef(chinese_score,math_score))
+print(np.corrcoef(chinese_score,english_score))
