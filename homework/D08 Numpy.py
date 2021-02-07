@@ -5,9 +5,22 @@ weight_list = [67.5,75.3,50.1,45.5,80.8,90.4,78.4,70.7]
 rank_list = [8,1,5,4,7,6,2,3]
 myopia_list = [True,True,False,False,True,True,False,False]
 
-student_data=np.dtype('U17,U13,f8,int,?')
-student_data=np.dtype({'names':('Name','sex','weight','rank','myopia'),'formats':('U17','U13','f8','int','?')})
-student_data[0]=[name_list[0],sex_list[0],weight_list[0],rank_list[0],myopia_list[0]]
-student_data[1]=[name_list[1],sex_list[1],weight_list[1],rank_list[1],myopia_list[1]]
 
-print(student_data[0])
+student_data={'names':('name','sex','weight','rank','myopia'),'formats':('U10','U6','f8','i3','?')}
+student_data['name']=name_list
+student_data['sex']=sex_list
+student_data['weight']=weight_list
+student_data['rank']=rank_list
+student_data['myopia']=myopia_list
+
+
+
+print("total mean",np.mean(student_data['weight']))
+
+boy_idx=np.where(student_data['sex']=='boy')[0]
+np.mean(student_data['weight'][boy_idx])
+
+
+girl_idx=np.where(student_data['sex']=="girl")[0]
+
+np.mean(student_data['weight'][girl_idx])
