@@ -6,21 +6,24 @@ rank_list = [8,1,5,4,7,6,2,3]
 myopia_list = [True,True,False,False,True,True,False,False]
 
 
-student_data={'names':('name','sex','weight','rank','myopia'),'formats':('U10','U6','f8','i3','?')}
-student_data['name']=name_list
-student_data['sex']=sex_list
-student_data['weight']=weight_list
-student_data['rank']=rank_list
-student_data['myopia']=myopia_list
+student_type={'names':('name','sex','weight','rank','myopia'),'formats':('U10','U6','f8','i4','?')}
+students=np.zeros(8,dtype=student_type)
+students['name']=name_list
+students['sex']=sex_list
+students['weight']=weight_list
+students['rank']=rank_list
+students['myopia']=myopia_list
 
 
 
-print("total mean",np.mean(student_data['weight']))
-
-boy_idx=np.where(student_data['sex']=='boy')[0]
-np.mean(student_data['weight'][boy_idx])
+print("total mean",np.mean(students['weight']))
 
 
-girl_idx=np.where(student_data['sex']=="girl")[0]
+boy_idx=np.where(students['sex']=='boy')[0]
 
-np.mean(student_data['weight'][girl_idx])
+print(np.mean(students['weight'][boy_idx]))
+
+
+girl_idx=np.where(students['sex']=="girl")[0]
+
+print(np.mean(students['weight'][girl_idx]))
